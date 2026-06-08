@@ -3,18 +3,20 @@ __pycache__/
 .venv/
 venv/
 env/
+_tmp_openpano/
 
 outputs/panoramas/*
 outputs/visualizations/*
 outputs/metrics.csv
+outputs/*.csv
 !outputs/panoramas/.gitkeep
 !outputs/visualizations/.gitkeep
 
 data/*
 !data/.gitkeep
-!data/set1/
-!data/set1/*.jpg
-!data/set2/
-!data/set2/*.jpg
-!data/set3/
-!data/set3/*.jpg
+!data/set1_uav_aerial/
+!data/set1_uav_aerial/*.jpg
+!data/set2_cmu_campus/
+!data/set2_cmu_campus/*.JPG
+!data/set3_zijing_campus/
+!data/set3_zijing_campus/*.jpg

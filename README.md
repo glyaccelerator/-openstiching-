@@ -56,36 +56,34 @@ pip install stitching opencv-python numpy
 
 ## 运行方法
 
-仓库已经包含三组小型合成测试数据：
+仓库已经包含三组真实多视角测试数据，来自 OpenPano 官方 example data：
 
 ```text
-data/set1
-data/set2
-data/set3
+data/set1_uav_aerial       # UAV 航拍室外景观
+data/set2_cmu_campus       # CMU 校园室外场景
+data/set3_zijing_campus    # 清华紫荆公寓室外场景
 ```
 
-如果需要重新生成测试数据，可以运行：
+数据来源：[OpenPano Example Data](https://github.com/ppwwyyxx/OpenPano/releases/tag/0.1)。OpenPano README 中说明这些是可下载的 original/example data，适合全景拼接测试。
 
-```bash
-python scripts/generate_sample_data.py
-```
+说明：OpenStitching 在真实数据上可能提示 `Not all images are included in the final panorama`。这通常表示某些图片与主全景图匹配置信度不足，程序仍会输出可用全景图。报告中可以把它作为特征匹配和置信度阈值可扩展项来讨论。
 
 处理单个图片组：
 
 ```bash
-python main.py --input data/set1 --output outputs --resize-width 1200 --gamma 1.0 --clahe --exposure --crop
+python main.py --input data/set1_uav_aerial --output outputs --resize-width 900 --gamma 1.0 --clahe --exposure --crop
 ```
 
 批量处理 `data` 下的多个图片组：
 
 ```bash
-python main.py --batch data --output outputs --resize-width 1200 --gamma 1.0 --clahe --exposure --crop
+python main.py --batch data --output outputs --resize-width 900 --gamma 1.0 --clahe --exposure --crop
 ```
 
-建议第一次测试使用稍小的宽度，速度更快：
+如果想看更高分辨率结果，可以把宽度调大，例如：
 
 ```bash
-python main.py --batch data --output outputs --resize-width 900 --gamma 1.0 --clahe --exposure --crop
+python main.py --batch data --output outputs --resize-width 1200 --gamma 1.0 --clahe --exposure --crop
 ```
 
 只运行基础拼接，不启用 CLAHE、曝光补偿和裁剪：
@@ -228,3 +226,91 @@ stitching>=0.5.3
 - 增加更多评价指标，例如信息熵、清晰度、拼接缝附近亮度差。
 - 增加 GUI 或 Web 页面，方便交互式选择数据集和参数。
 - 增加自动生成实验报告的脚本，将 `metrics.csv` 和可视化结果整合到 Word 或 Markdown。
+## 加深算法版：Baseline 与 Improved 对比实验
+
+新增脚本：
+
+```text
+加深算法版.py
+```
+
+该脚本用于课程报告中的对比实验分析。它在同一组输入图片上分别运行 `baseline` 和 `improved` 两种模式，并输出全景图、对比图和 `comparison.csv`。
+
+### 运行命令
+
+单个数据集对比：
+
+```bash
+python 加深算法版.py --input data/set1_uav_aerial --output outputs --mode compare --resize-width 1200 --gamma 1.0 --clahe
+```
+
+批量数据集对比：
+
+```bash
+python 加深算法版.py --batch data --output outputs --mode compare --resize-width 1200 --gamma 1.0 --clahe
+```
+
+只运行原始 OpenStitching baseline：
+
+```bash
+python 加深算法版.py --input data/set1_uav_aerial --output outputs --mode baseline
+```
+
+只运行 improved 流程：
+
+```bash
+python 加深算法版.py --input data/set1_uav_aerial --output outputs --mode improved --resize-width 1200 --gamma 1.0 --clahe
+```
+
+### 输出文件
+
+```text
+outputs/
+├── comparison.csv
+├── panoramas/
+│   ├── set1_baseline.jpg
+│   ├── set1_improved_raw.jpg
+│   ├── set1_improved_cropped.jpg
+│   └── set1_improved_final.jpg
+└── visualizations/
+    └── set1_uav_aerial/
+        ├── input_thumbnails.jpg
+        ├── improved_preprocessed_thumbnails.jpg
+        ├── improved_exposure_thumbnails.jpg
+        ├── improved_crop_mask.jpg
+        └── baseline_vs_improved.jpg
+```
+
+`baseline_vs_improved.jpg` 包含输入图片缩略图、baseline 拼接结果、improved 裁剪前结果和 improved 裁剪后结果，适合直接放入实验报告。
+
+## 实验设计
+
+### 为什么设置 baseline 和 improved
+
+`baseline` 表示直接使用 OpenStitching 的原始拼接流程，不加入预处理、曝光补偿和黑边裁剪。它用于提供一个参考结果，反映默认拼接算法在当前数据集上的基础表现。
+
+`improved` 在 baseline 基础上加入图像缩放、亮度归一化、Gamma 校正、可选 CLAHE、均值方差曝光补偿和自动黑边裁剪。通过对同一组图片分别运行两种模式，可以观察改进模块对视觉质量、黑边比例和运行时间的影响。
+
+### 曝光补偿的作用
+
+多张输入图片可能因为拍摄角度、自动曝光或光照变化产生亮度差异。曝光补偿模块将各图像转换到 LAB 色彩空间，并将 L 亮度通道的均值和标准差匹配到第一张参考图像，从而减小拼接后不同区域之间的亮度突变。
+
+### 自动裁剪的作用
+
+全景图拼接后通常会出现黑色无效区域。自动裁剪模块先根据非黑色像素生成 mask，再寻找最大有效区域的外接矩形，最后裁剪掉明显黑边。这样可以得到更规整、更适合展示的全景图。
+
+### 评价指标含义
+
+`comparison.csv` 中的字段含义如下：
+
+- `dataset_name`：数据集名称，例如 `set1_uav_aerial`
+- `baseline_success`：baseline 是否成功生成全景图
+- `improved_success`：improved 是否成功生成全景图
+- `baseline_runtime`：baseline 运行时间，单位为秒
+- `improved_runtime`：improved 运行时间，单位为秒
+- `baseline_black_area_ratio`：baseline 输出图像中的黑色区域比例
+- `improved_black_area_ratio`：improved 裁剪后输出图像中的黑色区域比例
+- `baseline_output_size`：baseline 输出图像尺寸，格式为 `宽x高`
+- `improved_output_size`：improved 最终输出图像尺寸，格式为 `宽x高`
+
+一般来说，`improved_black_area_ratio` 越低，说明自动裁剪对无效黑边的去除越明显；运行时间则用于分析改进模块带来的额外计算开销。
