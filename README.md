@@ -213,3 +213,7 @@ outputs/report_assets/README_for_report.md
 2. 运行 `python run_all_experiments.py --data data --output outputs --resize-width 1200 --clahe --debug-matches`。
 3. 打开 `outputs/report_assets/README_for_report.md`，按推荐图片写实验报告。
 4. 如果某些数据集太慢，可以把 `--resize-width` 调到 900，或用 `--max-images 4` 限制每组图片数量。
+
+## GitHub 提交说明
+
+当前仓库已经包含正式分类后的实验图片、运行输出结果和报告所需的 CSV/可视化素材。data/_downloads/openpano_example-data.tgz 保留为原始数据压缩包；data/_downloads/openpano_example_data/ 属于可由压缩包重新解压生成的临时缓存目录，不影响实验运行和报告展示。
