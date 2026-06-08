@@ -1,0 +1,4 @@
+﻿dataset_name,image_count,input_resolution,preprocessing_method,exposure_compensation_enabled,crop_enabled,stitch_success,runtime_seconds,output_width,output_height,black_area_ratio_before_crop,black_area_ratio_after_crop,notes
+set1_uav_aerial,19,2000x1500,resize_900+clahe,True,True,True,69.810,3321,1095,0.003335,0.003335,
+set2_cmu_campus,13,1500x1112,resize_900+clahe,True,True,True,5.291,2171,515,0.000617,0.000617,
+set3_zijing_campus,12,1200x795,resize_900+clahe,True,True,True,6.566,4792,498,0.001009,0.001009,

@@ -1,0 +1,2 @@
+﻿dataset_name,baseline_success,improved_success,baseline_runtime,improved_runtime,baseline_black_area_ratio,improved_black_area_ratio,baseline_output_size,improved_output_size
+set1_uav_aerial,True,True,29.336,30.006,0.002467,0.003335,7378x2433,3321x1095

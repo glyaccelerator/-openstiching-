@@ -1,0 +1,31 @@
+﻿category,group_name,source,image_count,resolution,transform,reason
+01_landscape_rich_texture,set_landscape_1,download_CMU0,4,1300x867,none,Natural or aerial scenes with rich texture; useful for testing abundant feature matching.
+01_landscape_rich_texture,set_landscape_2,download_CMU1,4,1500x1112,none,Natural or aerial scenes with rich texture; useful for testing abundant feature matching.
+01_landscape_rich_texture,set_landscape_3,download_CMU2,4,1300x867,none,Natural or aerial scenes with rich texture; useful for testing abundant feature matching.
+02_city_architecture,set_city_1,download_CMU1,4,1500x1112,none,Campus; streets and buildings; useful for testing line structures and perspective changes.
+02_city_architecture,set_city_2,download_CMU2,4,1300x867,none,Campus; streets and buildings; useful for testing line structures and perspective changes.
+02_city_architecture,set_city_3,download_NSH,4,1300x867,none,Campus; streets and buildings; useful for testing line structures and perspective changes.
+03_map_or_satellite,set_map_1,download_CMU2,4,1300x867,none,Aerial/map-like views; useful for near-planar mosaicing and satellite-style stitching experiments.
+03_map_or_satellite,set_map_2,download_NSH,4,1300x867,none,Aerial/map-like views; useful for near-planar mosaicing and satellite-style stitching experiments.
+03_map_or_satellite,set_map_3,download_flower,4,1200x795,none,Aerial/map-like views; useful for near-planar mosaicing and satellite-style stitching experiments.
+04_indoor_low_texture,set_indoor_low_texture_1,download_NSH,4,1300x867,low_texture,Low-texture or smoother regions simulated from real panorama crops; useful for weak feature tests.
+04_indoor_low_texture,set_indoor_low_texture_2,download_flower,4,1200x795,low_texture,Low-texture or smoother regions simulated from real panorama crops; useful for weak feature tests.
+04_indoor_low_texture,set_indoor_low_texture_3,download_myself,4,1200x795,low_texture,Low-texture or smoother regions simulated from real panorama crops; useful for weak feature tests.
+05_low_light_or_exposure_diff,set_low_light_1,download_flower,4,1200x795,low_light,Exposure-altered groups; useful for testing brightness normalization and exposure compensation.
+05_low_light_or_exposure_diff,set_low_light_2,download_myself,4,1200x795,low_light,Exposure-altered groups; useful for testing brightness normalization and exposure compensation.
+05_low_light_or_exposure_diff,set_low_light_3,download_uav,4,2000x1500,low_light,Exposure-altered groups; useful for testing brightness normalization and exposure compensation.
+06_repetitive_texture,set_repetitive_1,download_myself,4,1200x795,repetitive,Repeated local structures; useful for testing false matches from regular texture.
+06_repetitive_texture,set_repetitive_2,download_uav,4,2000x1500,repetitive,Repeated local structures; useful for testing false matches from regular texture.
+06_repetitive_texture,set_repetitive_3,download_zijing,4,1200x795,repetitive,Repeated local structures; useful for testing false matches from regular texture.
+07_large_parallax,set_large_parallax_1,download_uav,2,2000x1500,none,Wider baseline image pairs; useful for testing homography robustness under viewpoint changes.
+07_large_parallax,set_large_parallax_2,download_zijing,2,1200x795,none,Wider baseline image pairs; useful for testing homography robustness under viewpoint changes.
+07_large_parallax,set_large_parallax_3,set1_uav_aerial,2,2000x1500,none,Wider baseline image pairs; useful for testing homography robustness under viewpoint changes.
+08_many_images_wide_view,set_many_images_1,download_zijing,6,1200x795,none,Five or more continuous images; useful for wide-view multi-image panorama stitching.
+08_many_images_wide_view,set_many_images_2,set1_uav_aerial,6,2000x1500,none,Five or more continuous images; useful for wide-view multi-image panorama stitching.
+08_many_images_wide_view,set_many_images_3,set2_cmu_campus,6,1500x1112,none,Five or more continuous images; useful for wide-view multi-image panorama stitching.
+09_failure_cases,set_failure_1,set1_uav_aerial,2,2000x1500,failure,Hard cases with sparse overlap or sky/smooth regions; useful for discussing failure modes.
+09_failure_cases,set_failure_2,set2_cmu_campus,2,1500x1112,failure,Hard cases with sparse overlap or sky/smooth regions; useful for discussing failure modes.
+09_failure_cases,set_failure_3,set3_zijing_campus,2,1200x795,failure,Hard cases with sparse overlap or sky/smooth regions; useful for discussing failure modes.
+10_self_captured_demo,set_self_demo_1,self_captured_placeholder,0,pending,none,Placeholder for the user's later self-captured demo images.
+10_self_captured_demo,set_self_demo_2,self_captured_placeholder,0,pending,none,Placeholder for the user's later self-captured demo images.
+10_self_captured_demo,set_self_demo_3,self_captured_placeholder,0,pending,none,Placeholder for the user's later self-captured demo images.

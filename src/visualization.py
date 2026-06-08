@@ -56,4 +56,6 @@ def save_image(path: Path, image: Optional[np.ndarray]) -> None:
     if image is None:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
-    cv2.imwrite(str(path), image)
+    ok, encoded = cv2.imencode(path.suffix if path.suffix else ".jpg", image)
+    if ok:
+        encoded.tofile(str(path))

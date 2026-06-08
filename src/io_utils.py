@@ -37,7 +37,14 @@ def read_images(image_paths: List[Path]):
     images = []
     valid_paths = []
     for path in image_paths:
-        image = cv2.imread(str(path))
+        data = None
+        try:
+            import numpy as np
+
+            data = np.fromfile(str(path), dtype=np.uint8)
+        except Exception:
+            data = None
+        image = cv2.imdecode(data, cv2.IMREAD_COLOR) if data is not None and data.size else cv2.imread(str(path))
         if image is not None:
             images.append(image)
             valid_paths.append(path)

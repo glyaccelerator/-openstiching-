@@ -1,0 +1,34 @@
+﻿dataset_name,image_count,preprocessing_method,gamma,clahe_enabled,exposure_enabled,crop_enabled,stitch_success,runtime_seconds,output_width_before_crop,output_height_before_crop,output_width_after_crop,output_height_after_crop,black_area_ratio_before_crop,black_area_ratio_after_crop,retained_area_ratio_after_crop,notes
+01_landscape_rich_texture/set_landscape_1,4,resize_1200,1.000000,False,True,True,True,1.160670,1785,620,1785,620,0.004128,0.004128,1.000000,full batch experiment
+01_landscape_rich_texture/set_landscape_2,4,resize_1200,1.000000,False,True,True,True,0.889622,2487,670,2487,670,0.019798,0.019798,1.000000,full batch experiment
+01_landscape_rich_texture/set_landscape_3,4,resize_1200,1.000000,False,True,True,True,0.580361,1273,604,1273,604,0.124798,0.124798,1.000000,full batch experiment
+02_city_architecture/set_city_1,4,resize_1200,1.000000,False,True,True,True,0.749784,1621,696,1621,696,0.046927,0.046927,1.000000,full batch experiment
+02_city_architecture/set_city_2,4,resize_1200,1.000000,False,True,True,True,0.872361,2208,617,2208,617,0.000325,0.000325,1.000000,full batch experiment
+02_city_architecture/set_city_3,4,resize_1200,1.000000,False,True,True,True,0.738475,2064,601,2064,601,0.010477,0.010477,1.000000,full batch experiment
+03_map_or_satellite/set_map_1,4,resize_1200,1.000000,False,True,True,True,0.772605,2039,613,2039,613,0.035839,0.035839,1.000000,full batch experiment
+03_map_or_satellite/set_map_2,4,resize_1200,1.000000,False,True,True,True,0.773246,2188,626,2188,626,0.003078,0.003078,1.000000,full batch experiment
+03_map_or_satellite/set_map_3,4,resize_1200,1.000000,False,True,True,True,0.921336,2147,735,2147,735,0.009125,0.009125,1.000000,full batch experiment
+04_indoor_low_texture/set_indoor_low_texture_1,4,resize_1200,1.000000,False,True,True,True,0.830500,1983,610,1983,610,0.001744,0.001744,1.000000,full batch experiment
+04_indoor_low_texture/set_indoor_low_texture_2,4,resize_1200,1.000000,False,True,True,True,0.898109,2132,726,2132,726,0.007504,0.007504,1.000000,full batch experiment
+04_indoor_low_texture/set_indoor_low_texture_3,4,resize_1200,1.000000,False,True,True,True,0.548372,1779,661,1779,661,0.000441,0.000441,1.000000,full batch experiment
+05_low_light_or_exposure_diff/set_low_light_1,4,resize_1200,1.000000,False,True,True,True,1.048358,2144,735,2144,735,0.014379,0.014379,1.000000,full batch experiment
+05_low_light_or_exposure_diff/set_low_light_2,4,resize_1200,1.000000,False,True,True,True,0.926150,2594,596,2594,596,0.000812,0.000812,1.000000,full batch experiment
+05_low_light_or_exposure_diff/set_low_light_3,4,resize_1200,1.000000,False,True,True,True,1.927680,1111,1430,1111,1430,0.001630,0.001630,1.000000,full batch experiment
+06_repetitive_texture/set_repetitive_1,4,resize_1200,1.000000,False,True,True,True,1.027695,2508,670,2508,670,0.007844,0.007844,1.000000,full batch experiment
+06_repetitive_texture/set_repetitive_2,4,resize_1200,1.000000,False,True,True,True,1.854663,1111,1436,1111,1432,0.004888,0.002109,0.997214,full batch experiment
+06_repetitive_texture/set_repetitive_3,4,resize_1200,1.000000,False,True,True,True,0.959370,2641,686,2641,686,0.057886,0.057886,1.000000,full batch experiment
+07_large_parallax/set_large_parallax_1,2,resize_1200,1.000000,False,True,True,True,0.453001,976,989,976,989,0.000023,0.000023,1.000000,full batch experiment
+07_large_parallax/set_large_parallax_2,2,resize_1200,1.000000,False,True,True,True,0.512905,1561,673,1561,673,0.000632,0.000632,1.000000,full batch experiment
+07_large_parallax/set_large_parallax_3,2,resize_1200,1.000000,False,True,True,False,0.199857,0,0,0,0,0.000000,0.000000,0.000000,"No match exceeds the given confidence threshold. Do your images have enough overlap and common features? If yes, you might want to lower the 'confidence_threshold' or try another 'detector'."
+08_many_images_wide_view/set_many_images_1,6,resize_1200,1.000000,False,True,True,True,1.258825,3398,658,3398,658,0.006862,0.006862,1.000000,full batch experiment
+08_many_images_wide_view/set_many_images_2,6,resize_1200,1.000000,False,True,True,True,2.481576,1670,1440,1670,1437,0.002283,0.000200,0.997917,full batch experiment
+08_many_images_wide_view/set_many_images_3,6,resize_1200,1.000000,False,True,True,True,1.473797,3337,670,3337,670,0.000023,0.000023,1.000000,full batch experiment
+09_failure_cases/set_failure_1,2,resize_1200,1.000000,False,True,True,False,0.268925,0,0,0,0,0.000000,0.000000,0.000000,"No match exceeds the given confidence threshold. Do your images have enough overlap and common features? If yes, you might want to lower the 'confidence_threshold' or try another 'detector'."
+09_failure_cases/set_failure_2,2,resize_1200,1.000000,False,True,True,True,0.462012,1504,680,1504,680,0.005690,0.005690,1.000000,full batch experiment
+09_failure_cases/set_failure_3,2,resize_1200,1.000000,False,True,True,True,0.360808,1619,683,1619,683,0.006685,0.006685,1.000000,full batch experiment
+10_self_captured_demo/set_self_demo_1,0,resize_1200,1.000000,False,True,True,False,0.000000,0,0,0,0,0.000000,0.000000,0.000000,Need at least two images.
+10_self_captured_demo/set_self_demo_2,0,resize_1200,1.000000,False,True,True,False,0.000000,0,0,0,0,0.000000,0.000000,0.000000,Need at least two images.
+10_self_captured_demo/set_self_demo_3,0,resize_1200,1.000000,False,True,True,False,0.000000,0,0,0,0,0.000000,0.000000,0.000000,Need at least two images.
+set1_uav_aerial,6,resize_1200,1.000000,False,True,True,True,3.188788,1640,1433,1640,1430,0.006489,0.004404,0.997906,full batch experiment
+set2_cmu_campus,6,resize_1200,1.000000,False,True,True,True,1.629998,3533,690,3533,690,0.051624,0.051624,1.000000,full batch experiment
+set3_zijing_campus,6,resize_1200,1.000000,False,True,True,True,1.371730,3392,652,3392,652,0.006944,0.006944,1.000000,full batch experiment

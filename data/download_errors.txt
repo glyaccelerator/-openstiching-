@@ -1,0 +1,4 @@
+- AutoPanoStitch dataset compilation does not expose a stable direct public download URL in this script; please add a mirror manually if required.
+- UDIS-D is a large dataset commonly distributed through project/cloud links; automatic full download is skipped to avoid account/quota issues.
+- UAV-image-mosaicing/UMCD official site notes that the dataset password must be requested by email, so it cannot be fetched automatically.
+- HPatches full release is intentionally skipped by default because it is large; rerun with --include-large to attempt downloading it.
