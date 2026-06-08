@@ -1,0 +1,1 @@
+"""Panorama stitching experiment system."""
