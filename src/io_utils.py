@@ -12,7 +12,11 @@ def list_image_files(folder: Path) -> List[Path]:
     if not folder.exists() or not folder.is_dir():
         return []
     return sorted(
-        [path for path in folder.iterdir() if path.suffix.lower() in IMAGE_EXTENSIONS],
+        [
+            path
+            for path in folder.iterdir()
+            if path.suffix.lower() in IMAGE_EXTENSIONS and not path.name.startswith("_")
+        ],
         key=lambda path: path.name.lower(),
     )
 

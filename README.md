@@ -56,6 +56,20 @@ pip install stitching opencv-python numpy
 
 ## 运行方法
 
+仓库已经包含三组小型合成测试数据：
+
+```text
+data/set1
+data/set2
+data/set3
+```
+
+如果需要重新生成测试数据，可以运行：
+
+```bash
+python scripts/generate_sample_data.py
+```
+
 处理单个图片组：
 
 ```bash
@@ -66,6 +80,12 @@ python main.py --input data/set1 --output outputs --resize-width 1200 --gamma 1.
 
 ```bash
 python main.py --batch data --output outputs --resize-width 1200 --gamma 1.0 --clahe --exposure --crop
+```
+
+建议第一次测试使用稍小的宽度，速度更快：
+
+```bash
+python main.py --batch data --output outputs --resize-width 900 --gamma 1.0 --clahe --exposure --crop
 ```
 
 只运行基础拼接，不启用 CLAHE、曝光补偿和裁剪：

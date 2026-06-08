@@ -12,3 +12,9 @@ outputs/metrics.csv
 
 data/*
 !data/.gitkeep
+!data/set1/
+!data/set1/*.jpg
+!data/set2/
+!data/set2/*.jpg
+!data/set3/
+!data/set3/*.jpg
